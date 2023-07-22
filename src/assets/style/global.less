@@ -1,0 +1,161 @@
+body[arco-theme='dark'] {
+  --color-fill-1: #222;
+  --color-fill-2: #333;
+}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  background-color: var(--color-bg-1);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+input,
+textarea {
+  font-size: initial;
+}
+
+.general-card {
+  border-radius: 4px;
+  border: none;
+  & > .arco-card-header {
+    height: auto;
+    padding: 20px;
+    border: none;
+    @media (max-width: 640px) {
+      padding: 12px;
+    }
+  }
+  & > .arco-card-body {
+    padding: 10px 20px 20px 20px;
+    @media (max-width: 640px) {
+      padding: 0 12px 20px 12px;
+    }
+  }
+}
+.arco-table .arco-table-cell {
+  padding: 5px 7px;
+}
+.arco-table-hover:not(.arco-table-dragging)
+  .arco-table-tr:not(.arco-table-tr-empty):not(.arco-table-tr-summary):hover
+  .arco-table-td:not(.arco-table-col-fixed-left):not(.arco-table-col-fixed-right),
+.arco-table-hover
+  .arco-table-tr-drag
+  .arco-table-td:not(.arco-table-col-fixed-left):not(.arco-table-col-fixed-right) {
+  background-color: var(--color-fill-2);
+}
+.arco-table-hover:not(.arco-table-dragging)
+  .arco-table-tr:not(.arco-table-tr-empty):not(.arco-table-tr-summary):hover
+  .arco-table-td.arco-table-col-fixed-left::before,
+.arco-table-hover
+  .arco-table-tr-drag
+  .arco-table-td.arco-table-col-fixed-left::before,
+.arco-table-hover:not(.arco-table-dragging)
+  .arco-table-tr:not(.arco-table-tr-empty):not(.arco-table-tr-summary):hover
+  .arco-table-td.arco-table-col-fixed-right::before,
+.arco-table-hover
+  .arco-table-tr-drag
+  .arco-table-td.arco-table-col-fixed-right::before {
+  background-color: var(--color-fill-2);
+}
+.arco-table-border-cell .arco-table-td:not(.arco-table-tr-expand){
+    border-right: 1px solid  var(--color-text-4);
+}
+.arco-table-td{
+    border-bottom: 1px solid var(--color-text-4);
+}
+.arco-table-border .arco-table-tr .arco-table-th{
+    border-right: 1px solid  var(--color-text-4);
+}
+.arco-table-border .arco-table-tr .arco-table-th{
+    border-bottom: 1px solid var(--color-text-4);
+}
+.arco-table-border .arco-table-container{
+    border-top: 1px solid var(--color-text-4);
+    border-left: 1px solid var(--color-text-4);
+}
+.arco-dropdown-option-content {
+  width: 100%;
+}
+.arco-select-view-multiple.arco-select-view-size-medium .arco-select-view-tag,
+.arco-select-view-multiple.arco-select-view-size-medium
+  .arco-select-view-input {
+  font-size: inherit;
+ 
+}
+.arco-table-cell {
+  word-break: break-word;
+}
+.arco-btn-size-medium {
+  min-height: 32px;
+  height: auto;
+}
+.arco-input-wrapper{
+    background-color: #fff;
+    border:1px solid #dcdee2;
+    border-radius: 5px;
+}
+.arco-select-view-single{
+    background-color: #fff;
+    border:1px solid #dcdee2;
+    border-radius: 5px;
+}
+.arco-picker{
+    background-color: #fff;
+    border:1px solid #dcdee2;
+    border-radius: 5px;
+}
+.arco-select-view-multiple{
+    background-color: #fff;
+    border:1px solid #dcdee2;
+    border-radius: 5px;
+}
+.arco-textarea-wrapper{
+    background-color: #fff;
+    border:1px solid #dcdee2;
+    border-radius: 5px;
+}
+body[arco-theme='dark']{
+    .arco-input-wrapper{
+        background-color: var(--color-fill-2);
+    }
+    .arco-select-view-single{
+        background-color: var(--color-fill-2);
+    }
+    .arco-picker{
+        background-color:var(--color-fill-2);
+    }
+    .arco-select-view-multiple{
+        background-color: var(--color-fill-2);
+    }
+    .arco-textarea-wrapper{
+        background-color: var(--color-fill-2);
+    }
+}
+
+.arco-scrollbar-track-direction-horizontal{
+    bottom: -12px;
+    .arco-scrollbar-thumb-bar{
+        border-radius: 0px;
+    }
+}
+.arco-menu-vertical .arco-menu-inline-header{
+    margin-bottom: 0px!important;
+    line-height: 35px!important;
+}
+.arco-menu .arco-menu-inline-header .arco-menu-icon{
+    margin-right: 5px!important;
+}
+
+.truncate	{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,60 @@
+name: Build and Deploy to Megaboss Production
+
+on:
+  push:
+    tags:
+      - prod*
+
+permissions:
+  id-token: write
+  contents: read
+  actions: read
+
+env:
+  PROJECT_ID: admin-vue-op
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v3
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Create Root .env
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_VITE_API_BASE_URL: /api
+          envkey_VITE_APP_ID: megaboss
+          directory: ./
+          file_name: .env.production
+          fail_on_empty: false
+
+      - name: Build
+        run: |
+          yarn install --network-concurrency=1
+          yarn vite build --config ./config/vite.config.prod.ts
+
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'dist'
+          destination-github-username: 'Locent'
+          destination-repository-name: 'op-proxy'
+          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+          target-branch: megaboss
+
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: message,commit,action,eventName,ref,workflow,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()

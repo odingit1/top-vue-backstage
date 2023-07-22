@@ -1,0 +1,22 @@
+node_modules
+.DS_Store
+.output
+dist
+dist-ssr
+*.local
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+.husky-compatible
+.env
+

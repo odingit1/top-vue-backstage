@@ -1,0 +1,20 @@
+{
+  "theme": "light",
+  "colorWeek": false,
+  "navbar": true,
+  "menu": true,
+  "hideHeader":false,
+  "hideMenu": false,
+  "menuCollapse": false,
+  "footer": true,
+  "themeColor": "#165DFF",
+  "menuWidth": 220,
+  "globalSettings": false,
+  "device": "desktop",
+  "tabBar": true,
+  "menuFromServer": false,
+  "serverMenu": [],
+  "searchFormHeight": 0,
+  "exportLimitedAmount": 4000000
+  
+}
